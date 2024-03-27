@@ -1,11 +1,4 @@
-/**
- *
- * Navigation
- *
- */
-
 import React from "react";
-
 import { connect } from "react-redux";
 import { Link, NavLink as ActiveLink, withRouter } from "react-router-dom";
 import Autosuggest from "react-autosuggest";
@@ -27,11 +20,10 @@ import {
 } from "reactstrap";
 
 import actions from "../../actions";
-
 import Button from "../../components/Common/Button";
 import CartIcon from "../../components/Common/CartIcon";
 import { BarsIcon } from "../../components/Common/Icon";
-import MiniBrand from "../../components/Store//MiniBrand";
+import MiniBrand from "../../components/Store/MiniBrand";
 import Menu from "../NavigationMenu";
 import Cart from "../Cart";
 
@@ -63,14 +55,8 @@ class Navigation extends React.PureComponent {
       return (
         <div>
           {parts.map((part, index) => {
-            const className = part.highlight
-              ? "react-autosuggest__suggestion-match"
-              : null;
-            return (
-              <span className={className} key={index}>
-                {part.text}
-              </span>
-            );
+            const className = part.highlight ? "react-autosuggest__suggestion-match" : null;
+            return <span className={className} key={index}>{part.text}</span>;
           })}
         </div>
       );
@@ -79,14 +65,7 @@ class Navigation extends React.PureComponent {
     return (
       <Link to={`/product/${suggestion.slug}`}>
         <div className="d-flex">
-          <img
-            className="item-image"
-            src={`${
-              suggestion.imageUrl
-                ? suggestion.imageUrl
-                : "/images/placeholder-image.png"
-            }`}
-          />
+          <img className="item-image" src={suggestion.imageUrl ? suggestion.imageUrl : "/images/placeholder-image.png"} />
           <div>
             <Container>
               <Row>
@@ -161,13 +140,7 @@ class Navigation extends React.PureComponent {
         </div>
         <Container>
           <Row className="align-items-center top-header">
-            <Col
-              xs={{ size: 12, order: 1 }}
-              sm={{ size: 12, order: 1 }}
-              md={{ size: 3, order: 1 }}
-              lg={{ size: 3, order: 1 }}
-              className="pr-0"
-            >
+            <Col xs={{ size: 12, order: 1 }} sm={{ size: 12, order: 1 }} md={{ size: 3, order: 1 }} lg={{ size: 3, order: 1 }} className="pr-0">
               <div className="brand">
                 {categories && categories.length > 0 && (
                   <Button
@@ -184,13 +157,7 @@ class Navigation extends React.PureComponent {
                 </Link>
               </div>
             </Col>
-            <Col
-              xs={{ size: 12, order: 4 }}
-              sm={{ size: 12, order: 4 }}
-              md={{ size: 12, order: 4 }}
-              lg={{ size: 5, order: 2 }}
-              className="pt-2 pt-lg-0"
-            >
+            <Col xs={{ size: 12, order: 4 }} sm={{ size: 12, order: 4 }} md={{ size: 12, order: 4 }} lg={{ size: 5, order: 2 }} className="pt-2 pt-lg-0">
               <Autosuggest
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -203,68 +170,41 @@ class Navigation extends React.PureComponent {
                 }}
               />
             </Col>
-            <Col
-              xs={{ size: 12, order: 2 }}
-              sm={{ size: 12, order: 2 }}
-              md={{ size: 4, order: 1 }}
-              lg={{ size: 5, order: 3 }}
-              className="desktop-hidden"
-            >
+            <Col xs={{ size: 12, order: 2 }} sm={{ size: 12, order: 2 }} md={{ size: 4, order: 1 }} lg={{ size: 5, order: 3 }} className="desktop-hidden">
               <div className="header-links">
-                <Button
-                  borderless
-                  variant="empty"
-                  ariaLabel="open the menu"
-                  icon={<BarsIcon />}
-                  onClick={() => this.toggleMenu()}
-                />
+                <Button borderless variant="empty" ariaLabel="open the menu" icon={<BarsIcon />} onClick={() => this.toggleMenu()} />
                 <CartIcon cartItems={cartItems} onClick={toggleCart} />
               </div>
             </Col>
-            <Col
-              xs={{ size: 12, order: 2 }}
-              sm={{ size: 12, order: 2 }}
-              md={{ size: 9, order: 1 }}
-              lg={{ size: 4, order: 3 }}
-              // className='px-0'
-            >
+            <Col xs={{ size: 12, order: 2 }} sm={{ size: 12, order: 2 }} md={{ size: 9, order: 1 }} lg={{ size: 4, order: 3 }}>
               <Navbar color="light" light expand="md" className="mt-1 mt-md-0">
-                <CartIcon
-                  className="d-none d-md-block"
-                  cartItems={cartItems}
-                  onClick={toggleCart}
-                />
+                <CartIcon className="d-none d-md-block" cartItems={cartItems} onClick={toggleCart} />
                 <Nav navbar>
                   {brands && brands.length > 0 && (
-                    <Dropdown
-                      nav
-                      inNavbar
-                      toggle={() => this.toggleBrand()}
-                      isOpen={isBrandOpen}
-                    >
+                    <Dropdown nav inNavbar toggle={() => this.toggleBrand()} isOpen={isBrandOpen}>
                       <DropdownToggle nav>
-                        Brands
+                      Brands
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right className="nav-brand-dropdown">
                         <div className="mini-brand">
-                          <MiniBrand
-                            brands={brands}
-                            toggleBrand={() => this.toggleBrand()}
-                          />
+                          <MiniBrand brands={brands} toggleBrand={() => this.toggleBrand()} />
                         </div>
                       </DropdownMenu>
                     </Dropdown>
                   )}
-                  {/* <NavItem>
-                    <NavLink
-                      tag={ActiveLink}
-                      to="/shop"
-                      activeClassName="active"
-                    >
-                      Shop
+                  {/* Sell with Us NavLink */}
+                  <NavItem>
+                    <NavLink tag={ActiveLink} to="/sell" activeClassName="active">
+                      Sell with Us
                     </NavLink>
-                  </NavItem> */}
+                  </NavItem>
+                  {/* About Us NavLink */}
+                  <NavItem>
+                    <NavLink tag={ActiveLink} to="/aboutus" activeClassName="active">
+                      About Us
+                    </NavLink>
+                  </NavItem>
                   {authenticated ? (
                     <UncontrolledDropdown nav inNavbar>
                       <DropdownToggle nav>
@@ -272,11 +212,7 @@ class Navigation extends React.PureComponent {
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right>
-                        <DropdownItem
-                          onClick={() => history.push("/dashboard")}
-                        >
-                          Dashboard
-                        </DropdownItem>
+                        <DropdownItem onClick={() => history.push("/dashboard")}>Dashboard</DropdownItem>
                         <DropdownItem onClick={signOut}>Sign Out</DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
@@ -287,12 +223,8 @@ class Navigation extends React.PureComponent {
                         <span className="fa fa-chevron-down dropdown-caret"></span>
                       </DropdownToggle>
                       <DropdownMenu right>
-                        <DropdownItem onClick={() => history.push("/login")}>
-                          Login
-                        </DropdownItem>
-                        <DropdownItem onClick={() => history.push("/register")}>
-                          Sign Up
-                        </DropdownItem>
+                        <DropdownItem onClick={() => history.push("/login")}>Login</DropdownItem>
+                        <DropdownItem onClick={() => history.push("/register")}>Sign Up</DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
                   )}
@@ -303,35 +235,19 @@ class Navigation extends React.PureComponent {
         </Container>
 
         {/* hidden cart drawer */}
-        <div
-          className={isCartOpen ? "mini-cart-open" : "hidden-mini-cart"}
-          aria-hidden={`${isCartOpen ? false : true}`}
-        >
+        <div className={isCartOpen ? "mini-cart-open" : "hidden-mini-cart"} aria-hidden={`${isCartOpen ? false : true}`}>
           <div className="mini-cart">
             <Cart />
           </div>
-          <div
-            className={
-              isCartOpen ? "drawer-backdrop dark-overflow" : "drawer-backdrop"
-            }
-            onClick={toggleCart}
-          />
+          <div className={isCartOpen ? "drawer-backdrop dark-overflow" : "drawer-backdrop"} onClick={toggleCart} />
         </div>
 
         {/* hidden menu drawer */}
-        <div
-          className={isMenuOpen ? "mini-menu-open" : "hidden-mini-menu"}
-          aria-hidden={`${isMenuOpen ? false : true}`}
-        >
+        <div className={isMenuOpen ? "mini-menu-open" : "hidden-mini-menu"} aria-hidden={`${isMenuOpen ? false : true}`}>
           <div className="mini-menu">
             <Menu />
           </div>
-          <div
-            className={
-              isMenuOpen ? "drawer-backdrop dark-overflow" : "drawer-backdrop"
-            }
-            onClick={toggleMenu}
-          />
+          <div className={isMenuOpen ? "drawer-backdrop dark-overflow" : "drawer-backdrop"} onClick={toggleMenu} />
         </div>
       </header>
     );
