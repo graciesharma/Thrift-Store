@@ -125,7 +125,7 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
                 <i className="fa fa-credit-card" />
-                <span>Payment Methods</span>
+                <span>Cash on Delivery only</span>
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
                 <i className="fa fa-phone" />
@@ -133,7 +133,7 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col xs="12" className="text-center d-block d-md-none">
                 <i className="fa fa-phone" />
-                <span> Need advice? Call us 951-999-9999</span>
+                <span> Need advice? Call us 9841297555</span>
               </Col>
             </Row>
           </Container>

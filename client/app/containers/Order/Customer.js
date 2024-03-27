@@ -63,18 +63,20 @@ class Customer extends React.PureComponent {
     const filteredOrders = search ? searchedOrders : orders;
     const displayPagination = advancedFilters.totalPages > 1;
     const displayOrders = filteredOrders && filteredOrders.length > 0;
-
+  
     function displayAllProductsForMerchant(orders, merchantId) {
       const matchingProducts = [];
       orders.forEach(order => {
         order.products.forEach(({ product }) => {
-          if (product.merchant._id === merchantId) {
+          if (product?.merchant && product.merchant._id === merchantId) {
             matchingProducts.push(order);
           }
         });
       });
       return matchingProducts;
     }
+    
+    
 
     const merchantOrders = displayAllProductsForMerchant(
       filteredOrders,
