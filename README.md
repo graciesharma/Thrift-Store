@@ -22,9 +22,6 @@ A thrift store built with MERN stack, and utilizes third party API's. This  stor
 To run this project locally you can use docker compose provided in the repository. Here is a guide on how to run this project locally using docker compose.
 
 Clone the repository
-```
-$ git clone https://github.com/mohamedsamara/mern-ecommerce.git
-```
 
 Edit the dockercompose.yml file and update the the values for MONGO_URI and JWT_SECRET
 
@@ -49,8 +46,10 @@ npm run seed:db [email-***@****.com] [password-******] // This is just an exampl
 Some basic Git commands are:
 
 ```
-$ git clone https://github.com/mohamedsamara/mern-ecommerce.git
-$ cd project
+$ git clone 
+$ cd client 
+$ npm install
+$ cd server 
 $ npm install
 ```
 
