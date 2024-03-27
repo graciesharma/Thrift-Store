@@ -17,9 +17,9 @@ const priceMarks = {
 
 const tagSelect = [
   { value: "", label: "All" },
-  { value: "Gents", label: "Gents" },
-  { value: "Ladies", label: "Ladies" },
-  { value: "Unisex", label: "Unisex" },
+  { value: "Gents", label: "Men" },
+  { value: "Ladies", label: "Women" },
+  { value: "Unisex", label: "Gender Neutral" },
 ];
 
 const rateMarks = {
