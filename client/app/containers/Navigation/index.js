@@ -75,7 +75,7 @@ class Navigation extends React.PureComponent {
               </Row>
               <Row>
                 <Col>
-                  <span className="price">${suggestion.price}</span>
+                  <span className="price">Rs{suggestion.price}</span>
                 </Col>
               </Row>
             </Container>
@@ -129,7 +129,7 @@ class Navigation extends React.PureComponent {
               </Col>
               <Col md="4" className="text-center d-none d-md-block">
                 <i className="fa fa-phone" />
-                <span>Call us 951-999-9999</span>
+                <span>For any support: Call us at 9841297555</span>
               </Col>
               <Col xs="12" className="text-center d-block d-md-none">
                 <i className="fa fa-phone" />
@@ -157,7 +157,7 @@ class Navigation extends React.PureComponent {
                 </Link>
               </div>
             </Col>
-            <Col xs={{ size: 12, order: 4 }} sm={{ size: 12, order: 4 }} md={{ size: 12, order: 4 }} lg={{ size: 5, order: 2 }} className="pt-2 pt-lg-0">
+            <Col xs={{ size: 12, order: 4 , }} sm={{ size: 12, order: 4 }} md={{ size: 12, order: 4 }} lg={{ size: 3, order: 2 }} className="pt-2 pt-lg-0">
               <Autosuggest
                 suggestions={suggestions}
                 onSuggestionsFetchRequested={onSuggestionsFetchRequested}
@@ -170,7 +170,7 @@ class Navigation extends React.PureComponent {
                 }}
               />
             </Col>
-            <Col xs={{ size: 12, order: 2 }} sm={{ size: 12, order: 2 }} md={{ size: 4, order: 1 }} lg={{ size: 5, order: 3 }} className="desktop-hidden">
+            <Col xs={{ size: 12, order: 2 }} sm={{ size: 12, order: 2 }} md={{ size: 4, order: 1 }} lg={{ size: 5, order: 2 }} className="desktop-hidden">
               <div className="header-links">
                 <Button borderless variant="empty" ariaLabel="open the menu" icon={<BarsIcon />} onClick={() => this.toggleMenu()} />
                 <CartIcon cartItems={cartItems} onClick={toggleCart} />
@@ -182,10 +182,10 @@ class Navigation extends React.PureComponent {
                 <Nav navbar>
                   {brands && brands.length > 0 && (
                     <Dropdown nav inNavbar toggle={() => this.toggleBrand()} isOpen={isBrandOpen}>
-                      <DropdownToggle nav>
+                      {/* <DropdownToggle nav>
                       Brands
                         <span className="fa fa-chevron-down dropdown-caret"></span>
-                      </DropdownToggle>
+                      </DropdownToggle> */}
                       <DropdownMenu right className="nav-brand-dropdown">
                         <div className="mini-brand">
                           <MiniBrand brands={brands} toggleBrand={() => this.toggleBrand()} />
