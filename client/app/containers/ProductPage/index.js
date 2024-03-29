@@ -112,7 +112,7 @@ class ProductPage extends React.PureComponent {
                       />
                     </div>
                     <div>Condition : {product.condition}</div>
-                    <div>Tag : {product.tag}</div>
+                    {/* <div>Tag : {product.tag}</div> */}
                     <div className="my-4 item-share">
                       <SocialShare product={product} />
                     </div>
