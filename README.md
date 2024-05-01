@@ -105,3 +105,4 @@ $ npm start
 
 ```
 
+NOTE : THIS THRIFT STORE WAS DONE BY USING FEW PARTS OF https://github.com/mohamedsamara/mern-ecommerce 
